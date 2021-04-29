@@ -29,7 +29,7 @@ It should stay this way:
 
 ![image](https://user-images.githubusercontent.com/23372415/116503000-07349200-a883-11eb-87b5-4048729eb3e6.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
