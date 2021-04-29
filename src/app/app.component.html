@@ -1,0 +1,486 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card text-white bg-light mb-3" >
+        <div class="card-header">Listado de Ciudades</div>
+        <div class="card-body">
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName1)">
+                      <input type="text" placeholder="City Name Bogotá" class="form-control" value="Bogotá" hidden autofocus #cityName1>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Bogotá
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Bogotá Latitud" class="form-control" value="-74.0817" hidden autofocus #lat>
+                        <input type="text" placeholder="Bogotá Longitud" class="form-control" value="4.6097" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Bogotá 
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <form (submit)="submitLocation(cityName2)">
+                    <input type="text" placeholder="City Name" class="form-control" value="Medellín" hidden autofocus #cityName2>
+                    <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      Medellín
+                    </button>
+                  </form>
+                </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Medellín Latitud" class="form-control" value="6.2518" hidden autofocus #lat>
+                        <input type="text" placeholder="Medellín Longitud" class="form-control" value="-75.5636" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Medellín
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName3)">
+                      <input type="text" placeholder="City Name" class="form-control" value="La Paz" hidden autofocus #cityName3>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          La Paz
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="La Paz Latitud" class="form-control" value="-16.5" hidden autofocus #lat>
+                        <input type="text" placeholder="La Paz Longitud" class="form-control" value="-68.15" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de La Paz
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName4)">
+                      <input type="text" placeholder="City Name" class="form-control" value="Quito" hidden autofocus #cityName4>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                          Quito
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Quito Latitud" class="form-control" value="-0.2299" hidden autofocus #lat>
+                        <input type="text" placeholder="Quito Longitud" class="form-control" value="-78.5249" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Quito
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName5)">
+                      <input type="text" placeholder="City Name" class="form-control" value="Madrid" hidden autofocus #cityName5>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                          Madrid
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Madrid Latitud" class="form-control" value="40.4165" hidden autofocus #lat>
+                        <input type="text" placeholder="Madrid Longitud" class="form-control" value="-3.7026" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Madrid
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingSix">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName6)">
+                      <input type="text" placeholder="City Name" class="form-control" value="Paris" hidden autofocus #cityName6>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                          Paris
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Paris Latitud" class="form-control" value="48.8534" hidden autofocus #lat>
+                        <input type="text" placeholder="Paris Longitud" class="form-control" value="2.3488" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Paris
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingSeven">
+                  <h5 class="mb-0">
+                    <form (submit)="submitLocation(cityName7)">
+                      <input type="text" placeholder="City Name" class="form-control" value="Tokyo" hidden autofocus #cityName7>
+                      <button class="btn list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                          Tokyo
+                      </button>
+                    </form>
+                  </h5>
+                </div>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                  <div class="card-body">
+                    <div *ngIf="weather" class="card card-body text-center">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>Ciudad:</th>
+                          <th>{{weather.name}}</th>
+                        </tr>
+                        <tr>
+                          <th>Latitud:</th>
+                          <th>{{weather.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                          <th>Longitud:</th>
+                          <th>{{weather.coord.lon}}</th>
+                        </tr>
+                        <tr>
+                          <th>Humedad:</th>
+                          <th>{{weather.main.humidity}}</th>
+                        </tr>
+                        <tr>
+                          <th>Presión:</th>
+                          <th>{{weather.main.pressure}}</th>
+                        </tr>
+                        <tr>
+                          <th>Temperatura:</th>
+                          <th>{{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></th>
+                        </tr>
+                        <tr>
+                          <th>Clima:</th>
+                          <th>{{weather.weather[0].description }}</th>
+                        </tr>
+                      </table>
+                      <form (submit)="submitCoordinates(lat, lon)">
+                        <input type="text" placeholder="Tokyo Latitud" class="form-control" value="35.6895" hidden autofocus #lat>
+                        <input type="text" placeholder="Tokyo Longitud" class="form-control" value="139.6917" hidden #lon>
+                        <button class="btn btn-primary btn-block mt-2" data-toggle="modal" data-target="#exampleModalCenter">
+                          Polución de Aire de Tokyo
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card text-white bg-light mb-3" >
+        <div class="card-header">Información en Tiempo Real</div>
+        <div *ngIf="weather" class="card card-body text-center">
+          <p>Ciudad: {{weather.name}}</p>
+          <p>Latitud: {{weather.coord.lat}}</p>
+          <p>Longitud: {{weather.coord.lon}}</p>
+          <p>Humedad: {{weather.main.humidity}}</p>
+          <p>Presión: {{weather.main.pressure}}</p>
+          <p>Temperatura: {{weather.main.temp}} °C <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" class="weather-icon" width="32px"/></p>
+          <p>Descripción: {{weather.weather[0].description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Polución del Aire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="weather" class="card card-body text-center">
+          <p>Ciudad: {{weather.name}}</p>
+          <p *ngIf="coord" class="card card-body text-center">
+            Lat : {{coord.coord.lat}} / Lon : {{coord.coord.lon}}
+          </p>
+        </div>
+        <div *ngIf="coord" class="card card-body text-center">
+          <table class="table table-hover">
+            <tr>
+              <th>
+                Índice de calidad del aire:
+              </th>
+              <th>
+                <input hidden [(ngModel)]="coord.list[0].main.aqi" type="text" class="form-control" disabled>
+                <span *ngIf="coord.list[0].main.aqi == 1" style="color:#0be881"> Excelente</span>
+                <span *ngIf="coord.list[0].main.aqi == 2" style="color:#34e7e4"> Bueno</span>
+                <span *ngIf="coord.list[0].main.aqi == 3" style="color:#ffa801"> Moderado</span>
+                <span *ngIf="coord.list[0].main.aqi == 4" style="color:#ffdd59"> Pobre</span>
+                <span *ngIf="coord.list[0].main.aqi == 5" style="color:#ff3f34"> Muy Pobre</span>
+              </th>
+            </tr>
+            <tr>
+              <th>Monóxido de Carbono (co):</th>
+              <th>{{coord.list[0].components.co}}</th>
+            </tr>
+            <tr>
+              <th>Monóxido de Nitrógeno (nh3):</th>
+              <th>{{coord.list[0].components.nh3}}</th>
+            </tr>
+            <tr>
+              <th>Dióxido de Nitrógeno (no):</th>
+              <th>{{coord.list[0].components.no}}</th>
+            </tr>
+            <tr>
+              <th>Ozono (no2):</th>
+              <th>{{coord.list[0].components.no2}}</th>
+            </tr>
+            <tr>
+              <th>Dióxido de Azufre(o3):</th>
+              <th>{{coord.list[0].components.o3}}</th>
+            </tr>
+            <tr>
+              <th>Materia de Partículas Finas (pm2_5):</th>
+              <th>{{coord.list[0].components.pm2_5}}</th>
+            </tr>
+            <tr>
+              <th>Partículas Gruesas (pm10):</th>
+              <th>{{coord.list[0].components.pm10}}</th>
+            </tr>
+            <tr>
+              <th>Amoníaco (so2):</th>
+              <th>{{coord.list[0].components.so2}}</th>
+            </tr>
+        </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
